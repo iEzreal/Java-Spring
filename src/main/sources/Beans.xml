@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 配置Bean class：bean的全类名，通过反射的方式在IOC容器中创建Bean，所以要求Bean中必须有无参数的构造器 id：标识容器中的bean -->
+	<bean id="user" class="com.spring.bean.User">
+		<property name="name" value="小鸣" />
+	</bean>
+
+	<!-- 使用构造器注入属性值可以指定参数的位置和参数的类型！以区分重载的构造器 -->
+	<bean id="car" class="com.spring.bean.Car">
+	
+		<constructor-arg value="大奔" type="String"></constructor-arg>
+		<!-- 如果字面值包含特殊字符可以使用<![CDATA[]]>包裹起来 -->
+		<constructor-arg type="String">
+		<value><![CDATA[<红色>]]></value>
+		</constructor-arg>
+		<constructor-arg value="100" type ="int"></constructor-arg>
+	</bean>
+
+</beans>
